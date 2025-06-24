@@ -191,7 +191,7 @@ const GeneratorInterface: React.FC<GeneratorInterfaceProps> = ({
                 <Slider
                   value={length}
                   onValueChange={setLength}
-                  min={100}
+                  min={50}
                   max={1000}
                   step={50}
                 />

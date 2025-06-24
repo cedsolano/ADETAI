@@ -232,17 +232,17 @@ const Home = () => {
                   "Select tone and format: formal, casual, creative, academic, and more.",
               },
               {
-                title: "Instant Preview & Edits",
+                title: "Instant Preview",
                 description:
                   "Preview results, tweak parts, or regenerate instantly.",
               },
               {
                 title: "Download & Share",
                 description:
-                  "Save your poem or essay in .txt or .pdf and share anywhere.",
+                  "Save your poem or essay in .txt",
               },
               {
-                title: "Integrated Chatbot",
+                title: "Integrated with AI",
                 description:
                   "Click on any unfamiliar word for an instant explanation.",
               },
@@ -347,7 +347,7 @@ const Home = () => {
       {/* CTA Footer */}
       <section className="py-16 bg-orange-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold mb-6">Not everyone is a writer, but everyone has a story</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
               size="lg"

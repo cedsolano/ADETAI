@@ -72,7 +72,7 @@ const BehindInspiroAI = ({ onBack = () => {} }: BehindInspiroAIProps) => {
                   <p>
                     Hi! I'm{" "}
                     <strong className="text-orange-600">
-                      Cedric Mark Gagni Solano
+                      Sedorikku Maku
                     </strong>
                     , the developer behind InspiroAI. I'm a 21-year-old
                     third-year Information Technology student from PUP Quezon
