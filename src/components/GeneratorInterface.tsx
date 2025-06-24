@@ -35,6 +35,8 @@ const GeneratorInterface: React.FC<GeneratorInterfaceProps> = ({
   const [isGenerating, setIsGenerating] = useState(false);
 
   const handleGenerate = async () => {
+    if (!theme.trim()) return;
+
     setIsGenerating(true);
 
     try {
@@ -70,6 +72,10 @@ const GeneratorInterface: React.FC<GeneratorInterfaceProps> = ({
     }
   };
 
+  const handleRegenerate = () => {
+    handleGenerate();
+  };
+
   return (
     <div className="w-full max-w-6xl mx-auto p-6 bg-background">
       <motion.div
@@ -82,8 +88,7 @@ const GeneratorInterface: React.FC<GeneratorInterfaceProps> = ({
           Create Your Poem or Essay Now!
         </h2>
         <p className="text-muted-foreground">
-          Provide a theme, and let AI craft a unique, engaging piece tailored
-          just for you!
+          Let your mind speak. InspiroAI brings your feelings to life through words.
         </p>
       </motion.div>
 
@@ -219,6 +224,8 @@ const GeneratorInterface: React.FC<GeneratorInterfaceProps> = ({
             content={generatedContent}
             contentType={contentType}
             isLoading={isGenerating}
+            onRegenerate={handleRegenerate}
+            language={language}
           />
         </div>
       </div>

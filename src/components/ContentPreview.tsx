@@ -24,12 +24,14 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { explainWord } from "@/lib/apiService";
 
 interface ContentPreviewProps {
   content: string;
   contentType: "poem" | "essay";
   onRegenerate?: () => void;
   isLoading?: boolean;
+  language?: string;
 }
 
 const ContentPreview = ({
@@ -37,11 +39,13 @@ const ContentPreview = ({
   contentType = "poem",
   onRegenerate = () => console.log("Regenerate content"),
   isLoading = false,
+  language = "english",
 }: ContentPreviewProps) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showChatbot, setShowChatbot] = useState(false);
   const [selectedWord, setSelectedWord] = useState("");
   const [wordExplanation, setWordExplanation] = useState("");
+  const [isExplaining, setIsExplaining] = useState(false);
 
   // Function to handle text-to-speech
   const handleTextToSpeech = () => {
@@ -80,30 +84,39 @@ const ContentPreview = ({
   };
 
   // Function to handle word click for chatbot explanation
-  const handleWordClick = (word: string) => {
+  const handleWordClick = async (word: string) => {
     const cleanWord = word.replace(/[^a-zA-Z0-9]/g, "");
     if (cleanWord.length > 0) {
       setSelectedWord(cleanWord);
-      // Generate a simple explanation for the word
-      const explanations = {
-        the: "A definite article used to specify a particular noun.",
-        and: "A conjunction used to connect words, phrases, or clauses.",
-        is: 'Third person singular present of "be"; indicates existence or identity.',
-        of: "A preposition expressing the relationship between a part and a whole.",
-        to: "A preposition expressing direction, place, or position.",
-        in: "A preposition expressing the situation of something that is surrounded by something else.",
-        for: "A preposition used to indicate the purpose or intended recipient of something.",
-        with: "A preposition used to express accompaniment or association.",
-        on: "A preposition expressing location or position in contact with and supported by a surface.",
-        at: "A preposition expressing location or arrival in a particular place or position.",
-      };
-
-      const explanation =
-        explanations[cleanWord.toLowerCase()] ||
-        `"${cleanWord}" - This word may have multiple meanings depending on context. It could be a noun, verb, adjective, or other part of speech. Consider looking it up in a dictionary for detailed definitions and usage examples.`;
-
-      setWordExplanation(explanation);
+      setIsExplaining(true);
       setShowChatbot(true);
+      setWordExplanation("Getting explanation...");
+
+      try {
+        const languageMap = {
+          english: "English",
+          tagalog: "Tagalog",
+          korean: "Korean",
+          japanese: "Japanese",
+          spanish: "Spanish",
+        };
+
+        const targetLanguage =
+          languageMap[language as keyof typeof languageMap] || "English";
+        const explanation = await explainWord(
+          cleanWord,
+          targetLanguage,
+          content,
+        );
+        setWordExplanation(explanation);
+      } catch (error) {
+        console.error("Error explaining word:", error);
+        setWordExplanation(
+          `Sorry, I couldn't explain "${cleanWord}" right now. Please try again later.`,
+        );
+      } finally {
+        setIsExplaining(false);
+      }
     }
   };
 
@@ -319,7 +332,16 @@ const ContentPreview = ({
             </DialogDescription>
           </DialogHeader>
           <div className="p-4 bg-orange-50 border border-orange-200 rounded-lg">
-            <p className="text-black font-medium">{wordExplanation}</p>
+            {isExplaining ? (
+              <div className="flex items-center space-x-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-2 border-orange-200 border-t-orange-500"></div>
+                <p className="text-black font-medium">Getting explanation...</p>
+              </div>
+            ) : (
+              <p className="text-black font-medium whitespace-pre-line">
+                {wordExplanation}
+              </p>
+            )}
           </div>
         </DialogContent>
       </Dialog>
