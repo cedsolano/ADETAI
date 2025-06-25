@@ -7,9 +7,6 @@ import GeneratorInterface from "./GeneratorInterface";
 import BehindInspiroAI from "./BehindInspiroAI";
 import {
   ArrowDown,
-  Facebook,
-  Twitter,
-  Instagram,
   Menu,
   Home as HomeIcon,
   FileText,
@@ -365,27 +362,6 @@ const Home = () => {
               <User className="h-4 w-4 mr-2" />
               Behind InspiroAI
             </Button>
-          </div>
-
-          <div className="mt-12 flex justify-center space-x-6">
-            <a
-              href="#"
-              className="text-white hover:text-orange-200 transition-colors"
-            >
-              <Facebook size={24} />
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-orange-200 transition-colors"
-            >
-              <Twitter size={24} />
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-orange-200 transition-colors"
-            >
-              <Instagram size={24} />
-            </a>
           </div>
 
           <p className="mt-8 text-orange-200">

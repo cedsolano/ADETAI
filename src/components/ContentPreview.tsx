@@ -331,7 +331,7 @@ const ContentPreview = ({
               Understanding the word "{selectedWord}"
             </DialogDescription>
           </DialogHeader>
-          <div className="p-4 bg-orange-50 border border-orange-200 rounded-lg">
+          <div className="p-4 bg-orange-50 border border-orange-200 rounded-lg max-h-80 overflow-y-auto">
             {isExplaining ? (
               <div className="flex items-center space-x-2">
                 <div className="animate-spin rounded-full h-4 w-4 border-2 border-orange-200 border-t-orange-500"></div>

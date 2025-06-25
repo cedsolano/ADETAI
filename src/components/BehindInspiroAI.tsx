@@ -10,6 +10,10 @@ import {
   Clock,
   Lightbulb,
   Zap,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Github,
 } from "lucide-react";
 
 interface BehindInspiroAIProps {
@@ -44,17 +48,15 @@ const BehindInspiroAI = ({ onBack = () => {} }: BehindInspiroAIProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Image Placeholder */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-25">
+            {/* Developer Image */}
             <div className="order-2 lg:order-1">
-              <div className="bg-orange-100 rounded-lg p-8 h-80 flex items-center justify-center border-2 border-dashed border-orange-300">
-                <div className="text-center text-orange-600">
-                  <Palette className="h-16 w-16 mx-auto mb-4" />
-                  <p className="text-lg font-medium">Your Image Goes Here</p>
-                  <p className="text-sm text-orange-500 mt-2">
-                    Upload your photo to personalize this section
-                  </p>
-                </div>
+              <div className="bg-orange-100 rounded-lg p-4 h-96 flex items-center justify-center">
+                <img
+                  src="/public/images/d8061003-94e5-47ec-b009-3145c87a8449.jpg"
+                  alt="Cedric Solano"
+                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                />
               </div>
             </div>
 
@@ -128,7 +130,7 @@ const BehindInspiroAI = ({ onBack = () => {} }: BehindInspiroAIProps) => {
                       • Responsive Web Design using HTML, CSS, and JavaScript
                     </li>
                     <li>
-                      • Familiar with TypeScript 
+                      • Familiar with TypeScript and component-based development
                     </li>
                     <li>
                       • UI/UX Design and System Design using Figma, Canva, and
@@ -201,6 +203,59 @@ const BehindInspiroAI = ({ onBack = () => {} }: BehindInspiroAIProps) => {
                 </CardContent>
               </Card>
             </div>
+          </motion.div>
+
+          {/* Social Media Links */}
+          <motion.div
+            className="text-center bg-orange-50 rounded-lg p-8 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <h3 className="text-2xl font-bold text-black mb-6">
+              Connect with Me
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <a
+                href="https://www.facebook.com/cedricmark.solano.3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+              >
+                <Facebook className="h-5 w-5" />
+                <span className="font-medium hidden sm:inline">Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/cedsolano_/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                <Instagram className="h-5 w-5" />
+                <span className="font-medium hidden sm:inline">Instagram</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/cedric-mark-solano-6309122b9/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-3 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="font-medium hidden sm:inline">LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/cedsolano"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 bg-gray-800 hover:bg-gray-900 text-white px-4 py-3 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+              >
+                <Github className="h-5 w-5" />
+                <span className="font-medium hidden sm:inline">GitHub</span>
+              </a>
+            </div>
+            <p className="text-black text-sm">
+              Follow me for updates on my projects and journey in tech!
+            </p>
           </motion.div>
 
           {/* Call to Action */}
