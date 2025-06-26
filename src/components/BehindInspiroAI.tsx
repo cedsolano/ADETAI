@@ -53,7 +53,7 @@ const BehindInspiroAI = ({ onBack = () => {} }: BehindInspiroAIProps) => {
             <div className="order-2 lg:order-1">
               <div className="bg-orange-100 rounded-lg p-4 h-96 flex items-center justify-center">
                 <img
-                  src="/public/images/d8061003-94e5-47ec-b009-3145c87a8449.jpg"
+                  src="/images/d8061003-94e5-47ec-b009-3145c87a8449.jpg"
                   alt="Cedric Solano"
                   className="w-full h-full object-cover rounded-lg shadow-lg"
                 />
