@@ -234,14 +234,14 @@ const Home = () => {
                   "Preview results, tweak parts, or regenerate instantly.",
               },
               {
-                title: "Download & Share",
+                title: "Download",
                 description:
                   "Save your poem or essay in .txt",
               },
               {
                 title: "Integrated with AI",
                 description:
-                  "Click on any unfamiliar word for an instant explanation.",
+                  "Click on any unfamiliar word for an instant explanation.\n\n (ENGLISH,TAGALOG,SPANISH)",
               },
             ].map((feature, index) => (
               <motion.div
